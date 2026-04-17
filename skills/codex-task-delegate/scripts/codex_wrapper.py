@@ -318,11 +318,24 @@ def load_state(workspace: Path) -> dict[str, Any]:
     }
 
 
+def _remove_log_files(thread: dict[str, Any]) -> None:
+    for key in ("stdout_log", "stderr_log", "exit_code_file"):
+        value = thread.get(key)
+        if isinstance(value, str) and value.strip():
+            try:
+                Path(value).unlink(missing_ok=True)
+            except OSError:
+                pass
+
+
 def save_state(workspace: Path, state: dict[str, Any]) -> None:
     state["updated_at"] = now_iso()
 
     threads = state.get("threads", [])
     if isinstance(threads, list) and len(threads) > MAX_THREADS:
+        for evicted in threads[MAX_THREADS:]:
+            if isinstance(evicted, dict):
+                _remove_log_files(evicted)
         state["threads"] = threads[:MAX_THREADS]
 
     atomic_write(
