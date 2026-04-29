@@ -15,6 +15,7 @@
 | `select` | registry:ui | Select (単一) と Combobox (複数 + フィルタ)。キーボード操作対応 | tokens, icon | — |
 | `list` | registry:ui | 汎用リスト。ListItem (div) と ListItemLink (a)。icon / suffix スロット、active / disabled 対応 | tokens | — |
 | `tooltip` | registry:ui | ホバー吹き出し。portal + 矢印付き自動位置決め | tokens | — |
+| `modal` | registry:ui | 構造を持たない汎用モーダル。backdrop + centered container のみ提供、中身は children で自由。width/height 任意指定、fullscreen 対応 | tokens | — |
 | `overlay` | registry:ui | Dialog (backdrop blur + pop-in) と Toast (右下スタック、自動消滅)。Toast は context + Provider | tokens, icon, button | — |
 | `spinner` | registry:ui | Spinner (円形) / Pulse (ドット) / Progress (バー) のローディング 3 種 | tokens | — |
 | `kbd` | registry:ui | キーボードキー badge。mono フォント + 下側ダブルボーダー | tokens | — |
