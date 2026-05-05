@@ -28,7 +28,7 @@
 | `overlay` | registry:ui | Dialog (backdrop blur + pop-in) と Toast (右下スタック、自動消滅)。Toast は context + Provider | tokens, modal, icon, button | — |
 | `spinner` | registry:ui | Spinner (円形) / Pulse (ドット) / Progress (バー) のローディング 3 種 | tokens | — |
 | `kbd` | registry:ui | キーボードキー badge。mono フォント + 下側ダブルボーダー | tokens | — |
-| `truncate` | registry:ui | 1 行省略 (…) + ホバー全文 tooltip + C キーコピー | tokens, tooltip, kbd | — |
+| `truncate` | registry:ui | 1 行省略 (…) + ホバー全文 tooltip + C キーコピー | tokens, tooltip, kbd, toolbar-button | — |
 | `page-header` | registry:ui | ページ上部 title + meta + actions。sticky 対応 | tokens | — |
 | `meta-item` | registry:ui | アイコン + ラベル + 値の横並び表示 | tokens, icon | — |
 | `breadcrumb` | registry:ui | パンくずナビ。renderLink で SPA ルーター対応、maxItems 自動折りたたみ | tokens, icon | — |
@@ -37,9 +37,9 @@
 | `button-group` | registry:ui | 複数 Button を枠共有でグルーピング。horizontal/vertical | tokens, button | — |
 | `toolbar-button` | registry:ui | アイコン＋ラベルのツールバー用ボタン。狭幅時は自動でアイコンのみに切替。pressed トグル対応 | tokens, icon | — |
 | `theme-toggle` | registry:ui | dark/light 切替ボタン。localStorage 永続化 | tokens, button, icon | — |
-| `compact-number` | registry:ui | 数値を SI 接頭辞 (k/M/B) で短縮表示。hover で完全値 tooltip | tokens, tooltip, kbd | — |
-| `compact-bytes` | registry:ui | バイト数を human-readable 表示 (SI/IEC)。hover で正確値 tooltip | tokens, tooltip, kbd | — |
-| `time-display` | registry:ui | RelativeTime / AbsoluteTime / LiveElapsed / DurationDisplay の 4 種 | tokens, tooltip, kbd | — |
+| `compact-number` | registry:ui | 数値を SI 接頭辞 (k/M/B) で短縮表示。hover で完全値 tooltip | tokens, tooltip, kbd, toolbar-button | — |
+| `compact-bytes` | registry:ui | バイト数を human-readable 表示 (SI/IEC)。hover で正確値 tooltip | tokens, tooltip, kbd, toolbar-button | — |
+| `time-display` | registry:ui | RelativeTime / AbsoluteTime / LiveElapsed / DurationDisplay の 4 種 | tokens, tooltip, kbd, toolbar-button | — |
 | `md` | registry:ui | Markdown 風リッチタイポグラフィ (H1-H4, P, Link, List, Blockquote, Code 等) | tokens | — |
 | `command-palette` | registry:ui | Cmd+K 式コマンドパレット。fuzzy 検索、キーボードナビ (↑↓ Enter Esc)、グループ表示 | tokens, icon, use-scroll-lock | — |
 | `code-viewer` | registry:ui | 構文ハイライト + Diff ビュワー。Shiki ベース、CodeBlock / StyledCodeBlock / DiffViewer の 3 種 | tokens, icon, truncate, toolbar-button, use-scroll-lock | shiki, diff |
