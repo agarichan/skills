@@ -1,5 +1,13 @@
 # Orbit UI コンポーネント一覧
 
+## Hooks
+
+| 名前 | 種別 | 説明 | 依存 | npm |
+|------|------|------|------|-----|
+| `use-scroll-lock` | registry:hook | ボディスクロールロック。モーダル/ドロワー/全画面のスクロール抑止。位置保持 & 復元 | — | — |
+
+## Components
+
 | 名前 | 種別 | 説明 | 依存 | npm |
 |------|------|------|------|-----|
 | `tokens` | registry:ui | CSS変数一式 (color/spacing/radius/motion/status)。dark/light は `data-theme` 属性で切替 | — | — |
@@ -15,7 +23,7 @@
 | `select` | registry:ui | Select (単一) と Combobox (複数 + フィルタ)。キーボード操作対応 | tokens, icon | — |
 | `list` | registry:ui | 汎用リスト。ListItem (div) と ListItemLink (a)。icon / suffix スロット、active / disabled 対応 | tokens | — |
 | `tooltip` | registry:ui | ホバー吹き出し。portal + 矢印付き自動位置決め | tokens | — |
-| `modal` | registry:ui | 構造を持たない汎用モーダル。backdrop + centered container のみ提供、中身は children で自由。width/height 任意指定、fullscreen 対応 | tokens | — |
+| `modal` | registry:ui | 構造を持たない汎用モーダル。backdrop + centered container のみ提供、中身は children で自由。width/height 任意指定、fullscreen 対応 | tokens, use-scroll-lock | — |
 | `drawer` | registry:ui | 任意方向からスライドインするドロワーパネル。backdrop・閉じるボタン・拡大縮小・ドラッグリサイズ (スナップポイント対応) | tokens, button, icon | — |
 | `overlay` | registry:ui | Dialog (backdrop blur + pop-in) と Toast (右下スタック、自動消滅)。Toast は context + Provider | tokens, modal, icon, button | — |
 | `spinner` | registry:ui | Spinner (円形) / Pulse (ドット) / Progress (バー) のローディング 3 種 | tokens | — |
@@ -33,11 +41,11 @@
 | `compact-bytes` | registry:ui | バイト数を human-readable 表示 (SI/IEC)。hover で正確値 tooltip | tokens, tooltip, kbd | — |
 | `time-display` | registry:ui | RelativeTime / AbsoluteTime / LiveElapsed / DurationDisplay の 4 種 | tokens, tooltip, kbd | — |
 | `md` | registry:ui | Markdown 風リッチタイポグラフィ (H1-H4, P, Link, List, Blockquote, Code 等) | tokens | — |
-| `command-palette` | registry:ui | Cmd+K 式コマンドパレット。fuzzy 検索、キーボードナビ (↑↓ Enter Esc)、グループ表示 | tokens, icon | — |
-| `code-viewer` | registry:ui | 構文ハイライト + Diff ビュワー。Shiki ベース、CodeBlock / StyledCodeBlock / DiffViewer の 3 種 | tokens, icon, truncate, toolbar-button | shiki, diff |
+| `command-palette` | registry:ui | Cmd+K 式コマンドパレット。fuzzy 検索、キーボードナビ (↑↓ Enter Esc)、グループ表示 | tokens, icon, use-scroll-lock | — |
+| `code-viewer` | registry:ui | 構文ハイライト + Diff ビュワー。Shiki ベース、CodeBlock / StyledCodeBlock / DiffViewer の 3 種 | tokens, icon, truncate, toolbar-button, use-scroll-lock | shiki, diff |
 | `log-viewer` | registry:ui | 構造化ログ表示。時刻・レベル色分け・フィルタ・自動追従・コピー・折返し・拡大。ERROR 行ハイライト | tokens, input, toolbar-button, time-display | @tanstack/react-virtual |
-| `data-table` | registry:ui | 列定義ベーステーブル。仮想化・無限スクロール・sticky ヘッダ / sticky-left・ソート・行選択・skeleton・expand・Stats | tokens, icon, tooltip, compact-number, toolbar-button | @tanstack/react-virtual |
-| `file-browser` | registry:ui | ツリーペイン + コンテンツペイン。リサイズ / 自動展開 / レスポンシブ | tokens, icon, spinner, toolbar-button | — |
+| `data-table` | registry:ui | 列定義ベーステーブル。仮想化・無限スクロール・sticky ヘッダ / sticky-left・ソート・行選択・skeleton・expand・Stats | tokens, icon, tooltip, kbd, compact-number, toolbar-button, use-scroll-lock | @tanstack/react-virtual |
+| `file-browser` | registry:ui | ツリーペイン + コンテンツペイン。リサイズ / 自動展開 / レスポンシブ | tokens, icon, select, spinner, toolbar-button, truncate, use-scroll-lock | — |
 | `app-shell` | registry:block | Sidebar + Topbar + mobile drawer のアプリ外枠。context で drawer state 管理 | tokens, button, icon | — |
 
 ## インストール
@@ -46,4 +54,4 @@
 npx shadcn@latest add "https://orbit-ui.pages.dev/r/<component>.json"
 ```
 
-依存関係（`tokens` 含む）は自動解決される。複数コンポーネントを 1 コマンドで指定可能。
+依存関係（`tokens`・`use-scroll-lock` 含む）は自動解決される。複数コンポーネントを 1 コマンドで指定可能。
